@@ -4,58 +4,61 @@ import type Express from "express";
 import pick from "lodash/pick";
 
 export const inputType = <TSpec extends AnyEndpointSpec>(
-    ep: TSpec
+    endpoint: TSpec
 ): z.ZodType<Input<TSpec>, z.ZodTypeDef> =>
     z.object({
-        params: ep.path.type,
-        ...pick(ep, ["query", "body", "headers"]),
+        params: endpoint.path.type,
+        ...pick(endpoint, ["query", "body", "headers"]),
     } as any) as any;
 
 export const outputType = <TSpec extends AnyEndpointSpec>(
-    ep: TSpec
-): TSpec["result"] => ep.result;
+    endpoint: TSpec
+): TSpec["result"] => endpoint.result;
 
 export const bridge = <TIn, TOut, TSpec extends AnyEndpointSpec>(
     endpoint: TSpec,
     opts: {
         inputType: (
-            inputType: z.ZodType<Input<TSpec>, z.ZodTypeDef>,
-            req: Express.Request
+            inputType: z.ZodType<Input<TSpec>, z.ZodTypeDef>
         ) => z.ZodType<TIn, z.ZodTypeDef, any>;
         outputType: (
-            outputType: TSpec["result"],
-            req: Express.Request
+            outputType: TSpec["result"]
         ) => z.ZodType<TOut, z.ZodTypeDef, any>;
         propagateResult?: (result: TOut, res: Express.Response) => void;
         propagateError?: (err: any, res: Express.Response) => void;
     }
-) => ({
-    implement(service: (input: TIn) => TOut | Promise<TOut>) {
-        const middleware = async (
-            req: Express.Request,
-            res: Express.Response
-        ) => {
-            try {
-                const input = opts
-                    .inputType(inputType(endpoint), req)
-                    .parse(req);
-                const result = opts
-                    .outputType(outputType(endpoint), req)
-                    .parse(await service(input));
-                (opts.propagateResult ?? propagateResult)(result, res);
-            } catch (e) {
-                (opts.propagateError ?? propagateError)(e, res);
-            }
-        };
-        const attach = (router: Express.Router) => {
-            router[endpoint.method](endpoint.path.toPattern(), middleware);
-        };
-        return {
-            middleware,
-            attach,
-        };
-    },
-});
+) => {
+    const implInputType = opts.inputType(inputType(endpoint));
+    const implOutputType = opts.outputType(outputType(endpoint));
+    const implType = z
+        .function()
+        .args(implInputType)
+        .returns(implOutputType.or(implOutputType.promise()));
+    return {
+        implementationSchema: implType,
+        implement(service: (input: TIn) => TOut | Promise<TOut>) {
+            const middleware = async (
+                req: Express.Request,
+                res: Express.Response
+            ) => {
+                try {
+                    const input = implInputType.parse(req);
+                    const result = implOutputType.parse(await service(input));
+                    (opts.propagateResult ?? propagateResult)(result, res);
+                } catch (e) {
+                    (opts.propagateError ?? propagateError)(e, res);
+                }
+            };
+            const attach = (router: Express.Router) => {
+                router[endpoint.method](endpoint.path.toPattern(), middleware);
+            };
+            return {
+                middleware,
+                attach,
+            };
+        },
+    };
+};
 
 export const attach = <TSpec extends AnyEndpointSpec>(
     router: Express.Router,

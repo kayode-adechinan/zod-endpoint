@@ -1,6 +1,6 @@
 {
   "name": "zod-endpoint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lightweight zod and express integration enabling type-safe HTTP endpoints",
   "exports": {
     "spec": {
