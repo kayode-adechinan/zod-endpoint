@@ -54,6 +54,7 @@ export const bridge = <TIn, TOut, TSpec extends AnyEndpointSpec>(
             };
             return {
                 middleware,
+                service,
                 attach,
             };
         },
