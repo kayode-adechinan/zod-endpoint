@@ -13,6 +13,16 @@ export const PathPart = {
 
 export type PathPart = ReturnType<typeof PathPart[keyof typeof PathPart]>;
 
+/**
+ * Fluent builder to define a path pattern
+ *
+ * Eg. we can define a path specification for a pattern like /posts/:id like this:
+ *
+ *    path()
+ *       .literal("posts")
+ *       .placeholder("id", z.string())
+ *       .build() 
+ */
 export function path() {
     return propagatePath<{}>([], z.object({}));
 }
@@ -92,6 +102,9 @@ export type EndpointSpec<
 
 export type AnyEndpointSpec = EndpointSpec<HttpMethod, any, any, any, any, any>;
 
+/**
+ * Define an endpoint specification
+ */
 export const endpoint = <T extends AnyEndpointSpec>(spec: T) => spec;
 
 export type Input<TSpec extends AnyEndpointSpec> = {
