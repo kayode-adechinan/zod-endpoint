@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[spec.ts:103](https://github.com/lorefnon/zod-endpoint/blob/c9af7ef/src/spec.ts#L103)
+[spec.ts:103](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L103)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[spec.ts:80](https://github.com/lorefnon/zod-endpoint/blob/c9af7ef/src/spec.ts#L80)
+[spec.ts:80](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L80)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[spec.ts:78](https://github.com/lorefnon/zod-endpoint/blob/c9af7ef/src/spec.ts#L78)
+[spec.ts:78](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L78)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[spec.ts:110](https://github.com/lorefnon/zod-endpoint/blob/c9af7ef/src/spec.ts#L110)
+[spec.ts:110](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L110)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[spec.ts:14](https://github.com/lorefnon/zod-endpoint/blob/c9af7ef/src/spec.ts#L14)
+[spec.ts:14](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L14)
 
 ## Variables
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[spec.ts:3](https://github.com/lorefnon/zod-endpoint/blob/c9af7ef/src/spec.ts#L3)
+[spec.ts:3](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L3)
 
 ## Functions
 
@@ -135,7 +135,7 @@ Define an endpoint specification
 
 #### Defined in
 
-[spec.ts:108](https://github.com/lorefnon/zod-endpoint/blob/c9af7ef/src/spec.ts#L108)
+[spec.ts:108](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L108)
 
 ___
 
@@ -164,4 +164,4 @@ Eg. we can define a path specification for a pattern like /posts/:id like this:
 
 #### Defined in
 
-[spec.ts:26](https://github.com/lorefnon/zod-endpoint/blob/c9af7ef/src/spec.ts#L26)
+[spec.ts:26](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L26)

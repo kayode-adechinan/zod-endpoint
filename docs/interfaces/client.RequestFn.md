@@ -29,4 +29,4 @@
 
 #### Defined in
 
-[client.ts:6](https://github.com/lorefnon/zod-endpoint/blob/c9af7ef/src/client.ts#L6)
+[client.ts:6](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/client.ts#L6)

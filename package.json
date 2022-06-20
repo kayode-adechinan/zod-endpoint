@@ -16,6 +16,13 @@
       "require": "./dist/client.js"
     }
   },
+  "typesVersions": {
+    "*": {
+      "spec": ["dist/spec.d.ts"],
+      "server": ["dist/server.d.ts"],
+      "client": ["dist/client.d.ts"]
+    }
+  },
   "scripts": {
     "build": "pnpm run build:ts && pnpm run build:docs",
     "build:ts": "tsup",
