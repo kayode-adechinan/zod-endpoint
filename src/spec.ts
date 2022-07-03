@@ -13,18 +13,24 @@ export const PathPart = {
 
 export type PathPart = ReturnType<typeof PathPart[keyof typeof PathPart]>;
 
+export interface PathOpts {
+    absolute?: boolean;
+}
+
 /**
  * Fluent builder to define a path pattern
  *
- * Eg. we can define a path specification for a pattern like /posts/:id like this:
+ * Eg. we can define a path specification for a pattern like posts/:id like this:
  *
  *    path()
  *       .literal("posts")
  *       .placeholder("id", z.string())
  *       .build() 
+ *
+ * Construct relative paths using `path({ absolute: false })`
  */
-export function path() {
-    return propagatePath<{}>([], z.object({}));
+export function path(opts?: PathOpts): PathStep<{}> {
+    return propagatePath<{}>([], z.object({}), opts);
 }
 
 export interface PathSpec<TParams> {
@@ -33,30 +39,44 @@ export interface PathSpec<TParams> {
     type: z.ZodType<TParams, z.ZodTypeDef, any>;
 }
 
+export interface PathStep<TParams>{
+    literal: (value: string) => PathStep<TParams>;
+    placeholder: <
+        TName extends string, 
+        TZType extends z.ZodType<any, z.ZodTypeDef, any>
+    > (
+        name: TName,
+        phType: TZType
+    ) => PathStep<TParams & { 
+        [name in TName]: TZType["_output"]
+    }>;
+    build: () => PathSpec<TParams> 
+}
+
 function propagatePath<TParams extends {} = {}>(
     parts: PathPart[],
-    type: z.ZodType<TParams, z.ZodTypeDef, any>
-) {
+    type: z.ZodType<any, z.ZodTypeDef, any>,
+    opts?: PathOpts
+): PathStep<TParams> {
     return {
         literal: (value: string) =>
-            propagatePath<TParams>(parts.concat(PathPart.literal(value)), type),
-        placeholder: <TName extends string, TType>(
-            name: TName,
-            phType: z.ZodType<TType, z.ZodTypeDef, any>
+            propagatePath<TParams>(parts.concat(PathPart.literal(value)), type, opts),
+        placeholder: (
+            name,
+            phType
         ) => {
             const objSpec = {
                 [name]: phType,
-            } as {
-                [name in TName]: typeof phType;
-            };
+            }
             return propagatePath(
                 parts.concat(PathPart.placeholder(name)),
-                type.and(z.object(objSpec))
+                type.and(z.object(objSpec)),
+                opts
             );
         },
         build: (): PathSpec<TParams> => ({
             toPattern: () =>
-                "/" +
+                (opts?.absolute === false ? "" : "/") +
                 parts
                     .map((it) =>
                         it.type === "literal" ? it.value : `:${it.name}`

@@ -7,6 +7,7 @@
 ### Interfaces
 
 - [PathSpec](../interfaces/spec.PathSpec.md)
+- [PathStep](../interfaces/spec.PathStep.md)
 
 ### Type Aliases
 
@@ -33,7 +34,7 @@
 
 #### Defined in
 
-[spec.ts:103](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L103)
+[spec.ts:115](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L115)
 
 ___
 
@@ -54,7 +55,7 @@ ___
 
 #### Defined in
 
-[spec.ts:80](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L80)
+[spec.ts:92](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L92)
 
 ___
 
@@ -64,7 +65,7 @@ ___
 
 #### Defined in
 
-[spec.ts:78](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L78)
+[spec.ts:90](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L90)
 
 ___
 
@@ -80,7 +81,7 @@ ___
 
 #### Defined in
 
-[spec.ts:110](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L110)
+[spec.ts:122](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L122)
 
 ___
 
@@ -90,7 +91,7 @@ ___
 
 #### Defined in
 
-[spec.ts:14](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L14)
+[spec.ts:14](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L14)
 
 ## Variables
 
@@ -107,7 +108,7 @@ ___
 
 #### Defined in
 
-[spec.ts:3](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L3)
+[spec.ts:3](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L3)
 
 ## Functions
 
@@ -135,13 +136,13 @@ Define an endpoint specification
 
 #### Defined in
 
-[spec.ts:108](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L108)
+[spec.ts:120](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L120)
 
 ___
 
 ### path
 
-▸ **path**(): `Object`
+▸ **path**(): [`PathStep`](../interfaces/spec.PathStep.md)<{}\>
 
 Fluent builder to define a path pattern
 
@@ -154,14 +155,8 @@ Eg. we can define a path specification for a pattern like /posts/:id like this:
 
 #### Returns
 
-`Object`
-
-| Name | Type |
-| :------ | :------ |
-| `build` | () => [`PathSpec`](../interfaces/spec.PathSpec.md)<{}\> |
-| `literal` | (`value`: `string`) => { literal: (value: string) =\> ...; placeholder: <TName extends string, TType\>(name: TName, phType: ZodType<TType, ZodTypeDef, any\>) =\> { literal: (value: string) =\> ...; placeholder: <TName extends string, TType\>(name: TName, phType: ZodType<...\>) =\> { ...; }; build: () =\> PathSpec<...\>; }; build: () =\> PathSpec<...... |
-| `placeholder` | <TName, TType\>(`name`: `TName`, `phType`: `ZodType`<`TType`, `ZodTypeDef`, `any`\>) => { literal: (value: string) =\> ...; placeholder: <TName extends string, TType\>(name: TName, phType: ZodType<TType, ZodTypeDef, any\>) =\> { literal: (value: string) =\> ...; placeholder: <TName extends string, TType\>(name: TName, phType: ZodType<...\>) =\> { ...; }; build: () =\> PathSpec<...\>; }; build: () =\> PathSpec<...... |
+[`PathStep`](../interfaces/spec.PathStep.md)<{}\>
 
 #### Defined in
 
-[spec.ts:26](https://github.com/lorefnon/zod-endpoint/blob/8f643c8/src/spec.ts#L26)
+[spec.ts:26](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L26)
