@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[spec.ts:47](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L47)
+[spec.ts:53](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L53)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[spec.ts:37](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L37)
+[spec.ts:43](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L43)
 
 ___
 
@@ -78,4 +78,4 @@ ___
 
 #### Defined in
 
-[spec.ts:38](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L38)
+[spec.ts:44](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L44)

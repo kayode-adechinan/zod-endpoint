@@ -6,6 +6,7 @@
 
 ### Interfaces
 
+- [PathOpts](../interfaces/spec.PathOpts.md)
 - [PathSpec](../interfaces/spec.PathSpec.md)
 - [PathStep](../interfaces/spec.PathStep.md)
 
@@ -34,7 +35,7 @@
 
 #### Defined in
 
-[spec.ts:115](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L115)
+[spec.ts:123](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L123)
 
 ___
 
@@ -55,7 +56,7 @@ ___
 
 #### Defined in
 
-[spec.ts:92](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L92)
+[spec.ts:100](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L100)
 
 ___
 
@@ -65,7 +66,7 @@ ___
 
 #### Defined in
 
-[spec.ts:90](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L90)
+[spec.ts:98](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L98)
 
 ___
 
@@ -81,7 +82,7 @@ ___
 
 #### Defined in
 
-[spec.ts:122](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L122)
+[spec.ts:130](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L130)
 
 ___
 
@@ -91,7 +92,7 @@ ___
 
 #### Defined in
 
-[spec.ts:14](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L14)
+[spec.ts:14](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L14)
 
 ## Variables
 
@@ -108,7 +109,7 @@ ___
 
 #### Defined in
 
-[spec.ts:3](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L3)
+[spec.ts:3](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L3)
 
 ## Functions
 
@@ -136,22 +137,30 @@ Define an endpoint specification
 
 #### Defined in
 
-[spec.ts:120](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L120)
+[spec.ts:128](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L128)
 
 ___
 
 ### path
 
-▸ **path**(): [`PathStep`](../interfaces/spec.PathStep.md)<{}\>
+▸ **path**(`opts?`): [`PathStep`](../interfaces/spec.PathStep.md)<{}\>
 
 Fluent builder to define a path pattern
 
-Eg. we can define a path specification for a pattern like /posts/:id like this:
+Eg. we can define a path specification for a pattern like posts/:id like this:
 
    path()
       .literal("posts")
       .placeholder("id", z.string())
       .build()
+
+Construct relative paths using `path({ absolute: false })`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `opts?` | [`PathOpts`](../interfaces/spec.PathOpts.md) |
 
 #### Returns
 
@@ -159,4 +168,4 @@ Eg. we can define a path specification for a pattern like /posts/:id like this:
 
 #### Defined in
 
-[spec.ts:26](https://github.com/lorefnon/zod-endpoint/blob/9c603d0/src/spec.ts#L26)
+[spec.ts:32](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L32)
