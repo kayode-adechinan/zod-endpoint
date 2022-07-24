@@ -18,4 +18,4 @@
 
 #### Defined in
 
-[spec.ts:24](https://github.com/lorefnon/zod-endpoint/blob/845c57d/src/spec.ts#L24)
+[spec.ts:24](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/spec.ts#L24)

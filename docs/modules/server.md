@@ -37,7 +37,7 @@
 
 #### Defined in
 
-[server.ts:64](https://github.com/lorefnon/zod-endpoint/blob/845c57d/src/server.ts#L64)
+[server.ts:64](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/server.ts#L64)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[server.ts:18](https://github.com/lorefnon/zod-endpoint/blob/845c57d/src/server.ts#L18)
+[server.ts:18](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/server.ts#L18)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[server.ts:6](https://github.com/lorefnon/zod-endpoint/blob/845c57d/src/server.ts#L6)
+[server.ts:6](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/server.ts#L6)
 
 ___
 
@@ -127,4 +127,4 @@ ___
 
 #### Defined in
 
-[server.ts:14](https://github.com/lorefnon/zod-endpoint/blob/845c57d/src/server.ts#L14)
+[server.ts:14](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/server.ts#L14)

@@ -40,7 +40,7 @@ Create a function to invoke the endpoint through axios
 
 #### Defined in
 
-[client.ts:24](https://github.com/lorefnon/zod-endpoint/blob/845c57d/src/client.ts#L24)
+[client.ts:24](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/client.ts#L24)
 
 ___
 
@@ -76,4 +76,4 @@ Convenience utility to mapping of endpoints to a mapping of request functions
 
 #### Defined in
 
-[client.ts:55](https://github.com/lorefnon/zod-endpoint/blob/845c57d/src/client.ts#L55)
+[client.ts:55](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/client.ts#L55)
