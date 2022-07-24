@@ -1,13 +1,20 @@
 import * as z from "zod";
+import { match } from "ts-pattern";
+
+interface PlaceholderOptions {
+    isOptional?: boolean;
+    isSplat?: boolean;
+}
 
 export const PathPart = {
     literal: (value: string) => ({
         type: "literal" as const,
         value,
     }),
-    placeholder: (name: string) => ({
+    placeholder: (name: string, options?: PlaceholderOptions) => ({
         type: "placeholder" as const,
         name,
+        options,
     }),
 };
 
@@ -25,7 +32,7 @@ export interface PathOpts {
  *    path()
  *       .literal("posts")
  *       .placeholder("id", z.string())
- *       .build() 
+ *       .build()
  *
  * Construct relative paths using `path({ absolute: false })`
  */
@@ -39,18 +46,20 @@ export interface PathSpec<TParams> {
     type: z.ZodType<TParams, z.ZodTypeDef, any>;
 }
 
-export interface PathStep<TParams>{
+export interface PathStep<TParams> {
     literal: (value: string) => PathStep<TParams>;
     placeholder: <
-        TName extends string, 
+        TName extends string,
         TZType extends z.ZodType<any, z.ZodTypeDef, any>
-    > (
+    >(
         name: TName,
         phType: TZType
-    ) => PathStep<TParams & { 
-        [name in TName]: TZType["_output"]
-    }>;
-    build: () => PathSpec<TParams> 
+    ) => PathStep<
+        TParams & {
+            [name in TName]: TZType["_output"];
+        }
+    >;
+    build: () => PathSpec<TParams>;
 }
 
 function propagatePath<TParams extends {} = {}>(
@@ -60,16 +69,22 @@ function propagatePath<TParams extends {} = {}>(
 ): PathStep<TParams> {
     return {
         literal: (value: string) =>
-            propagatePath<TParams>(parts.concat(PathPart.literal(value)), type, opts),
-        placeholder: (
-            name,
-            phType
-        ) => {
+            propagatePath<TParams>(
+                parts.concat(PathPart.literal(value)),
+                type,
+                opts
+            ),
+        placeholder: (name, phType, options?: PlaceholderOptions) => {
             const objSpec = {
                 [name]: phType,
-            }
+            };
             return propagatePath(
-                parts.concat(PathPart.placeholder(name)),
+                parts.concat(
+                    PathPart.placeholder(name, {
+                        isOptional: phType.isOptional(),
+                        ...options,
+                    })
+                ),
                 type.and(z.object(objSpec)),
                 opts
             );
@@ -78,8 +93,21 @@ function propagatePath<TParams extends {} = {}>(
             toPattern: () =>
                 (opts?.absolute === false ? "" : "/") +
                 parts
-                    .map((it) =>
-                        it.type === "literal" ? it.value : `:${it.name}`
+                    .map((part) =>
+                        match(part)
+                            .with({ type: "literal" }, (part) => part.value)
+                            .with({ type: "placeholder" }, (part) =>
+                                match(part.options)
+                                    .with(
+                                        { isSplat: true },
+                                        () => `:${part.name}*`
+                                    )
+                                    .otherwise(() =>
+                                        part.options?.isOptional
+                                            ? `:${part.name}?`
+                                            : `:${part.name}`
+                                    )
+                            )
                     )
                     .join("/"),
             toPath: (params: TParams) =>

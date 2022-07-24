@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[spec.ts:123](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L123)
+[spec.ts:151](https://github.com/lorefnon/zod-endpoint/blob/845c57d/src/spec.ts#L151)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[spec.ts:100](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L100)
+[spec.ts:128](https://github.com/lorefnon/zod-endpoint/blob/845c57d/src/spec.ts#L128)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[spec.ts:98](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L98)
+[spec.ts:126](https://github.com/lorefnon/zod-endpoint/blob/845c57d/src/spec.ts#L126)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[spec.ts:130](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L130)
+[spec.ts:158](https://github.com/lorefnon/zod-endpoint/blob/845c57d/src/spec.ts#L158)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[spec.ts:14](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L14)
+[spec.ts:21](https://github.com/lorefnon/zod-endpoint/blob/845c57d/src/spec.ts#L21)
 
 ## Variables
 
@@ -105,11 +105,11 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `literal` | (`value`: `string`) => { `type`: ``"literal"`` ; `value`: `string`  } |
-| `placeholder` | (`name`: `string`) => { `name`: `string` ; `type`: ``"placeholder"``  } |
+| `placeholder` | (`name`: `string`, `options?`: `PlaceholderOptions`) => { `name`: `string` ; `options`: `undefined` \| `PlaceholderOptions` ; `type`: ``"placeholder"``  } |
 
 #### Defined in
 
-[spec.ts:3](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L3)
+[spec.ts:9](https://github.com/lorefnon/zod-endpoint/blob/845c57d/src/spec.ts#L9)
 
 ## Functions
 
@@ -137,7 +137,7 @@ Define an endpoint specification
 
 #### Defined in
 
-[spec.ts:128](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L128)
+[spec.ts:156](https://github.com/lorefnon/zod-endpoint/blob/845c57d/src/spec.ts#L156)
 
 ___
 
@@ -168,4 +168,4 @@ Construct relative paths using `path({ absolute: false })`
 
 #### Defined in
 
-[spec.ts:32](https://github.com/lorefnon/zod-endpoint/blob/ac3c3ce/src/spec.ts#L32)
+[spec.ts:39](https://github.com/lorefnon/zod-endpoint/blob/845c57d/src/spec.ts#L39)
