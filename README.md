@@ -1,6 +1,6 @@
 # zod-endpoint
 
-Lightweight [zod](https://github.com/colinhacks/zod) and [express](https://github.com/expressjs/express) integration enabling type-safe HTTP endpoints.
+Extremely lightweight [zod](https://github.com/colinhacks/zod) and [express](https://github.com/expressjs/express) integration enabling type-safe HTTP endpoints.
 
 Both express and zod are unopinionated micro libraries - and we inherit and embrace the flexibility of both.
 
@@ -15,7 +15,7 @@ It is easy to incrementally adopt in your project if you are already using expre
 First step is to define a specification of an endpoint
 
 ```ts
-import { endpoint, path } from "../spec";
+import { endpoint, path } from "zod-endpoint/spec";
 
 // Define the endpoint specification
 const getPostsEndpoint = endpoint({
@@ -49,6 +49,9 @@ const getPostsEndpoint = endpoint({
 While implementing the server, we can bridge this specification to an endpoint which implements our service.
 
 ```ts
+import express from "express";
+import { bridge } from "zod-endpoint/server";
+
 const app = express();
 
 // Bridge the endpoint spec to a service which is independent
@@ -101,7 +104,7 @@ const server = app.listen(3000);
 We can also create a client from this spec
 
 ```ts
-import { request } from "zod-endpoint/spec";
+import { request } from "zod-endpoint/client";
 
 const getPost = request(getPostsEndpoint);
 
