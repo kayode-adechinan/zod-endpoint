@@ -29,7 +29,7 @@
 
 #### Defined in
 
-[spec.ts:46](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/spec.ts#L46)
+[spec.ts:46](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/spec.ts#L46)
 
 ## Methods
 
@@ -49,7 +49,7 @@
 
 #### Defined in
 
-[spec.ts:45](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/spec.ts#L45)
+[spec.ts:45](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/spec.ts#L45)
 
 ___
 
@@ -63,4 +63,4 @@ ___
 
 #### Defined in
 
-[spec.ts:44](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/spec.ts#L44)
+[spec.ts:44](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/spec.ts#L44)

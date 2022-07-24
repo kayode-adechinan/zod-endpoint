@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[spec.ts:151](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/spec.ts#L151)
+[spec.ts:151](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/spec.ts#L151)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[spec.ts:128](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/spec.ts#L128)
+[spec.ts:128](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/spec.ts#L128)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[spec.ts:126](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/spec.ts#L126)
+[spec.ts:126](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/spec.ts#L126)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[spec.ts:158](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/spec.ts#L158)
+[spec.ts:158](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/spec.ts#L158)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[spec.ts:21](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/spec.ts#L21)
+[spec.ts:21](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/spec.ts#L21)
 
 ## Variables
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[spec.ts:9](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/spec.ts#L9)
+[spec.ts:9](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/spec.ts#L9)
 
 ## Functions
 
@@ -137,7 +137,7 @@ Define an endpoint specification
 
 #### Defined in
 
-[spec.ts:156](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/spec.ts#L156)
+[spec.ts:156](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/spec.ts#L156)
 
 ___
 
@@ -168,4 +168,4 @@ Construct relative paths using `path({ absolute: false })`
 
 #### Defined in
 
-[spec.ts:39](https://github.com/lorefnon/zod-endpoint/blob/eb01508/src/spec.ts#L39)
+[spec.ts:39](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/spec.ts#L39)
