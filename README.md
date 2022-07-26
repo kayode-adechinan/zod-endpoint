@@ -56,14 +56,13 @@ const app = express();
 
 // Bridge the endpoint spec to a service which is independent
 // of http
-bridge(getPostsEndpoint, {
-
-    // Return the zod type which will be used
-    // to parse the request object
+bridge(getPostsEndpoint)
+.through({
+    // We receive a zod type that can be used to parse 
+    // the incoming request. 
     //
-    // The received type argument is derived from specification endpoint
-    // and here we will transform the data to return something that the
-    // service expects
+    // We augment this type with transformations to generate the
+    // input our service expects.
     inputType: (it) =>
         it.transform((it) => ({
             id: it.params.id,
@@ -79,7 +78,7 @@ bridge(getPostsEndpoint, {
     //
     // Note that this service implementation does not receive
     // request/response object and is http independent.
-    .implement(async ({ id, tag }) => {
+    .toService(async ({ id, tag }) => {
 
         // Dummy implementation.
         // In a real application we will most likely fetch this data

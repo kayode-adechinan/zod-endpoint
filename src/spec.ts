@@ -53,7 +53,8 @@ export interface PathStep<TParams> {
         TZType extends z.ZodType<any, z.ZodTypeDef, any>
     >(
         name: TName,
-        phType: TZType
+        phType: TZType,
+        options?: PlaceholderOptions
     ) => PathStep<
         TParams & {
             [name in TName]: TZType["_output"];
@@ -100,7 +101,7 @@ function propagatePath<TParams extends {} = {}>(
                                 match(part.options)
                                     .with(
                                         { isSplat: true },
-                                        () => `:${part.name}*`
+                                        () => `:${part.name}(*)`
                                     )
                                     .otherwise(() =>
                                         part.options?.isOptional
@@ -108,6 +109,7 @@ function propagatePath<TParams extends {} = {}>(
                                             : `:${part.name}`
                                     )
                             )
+                            .exhaustive()
                     )
                     .join("/"),
             toPath: (params: TParams) =>

@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[spec.ts:62](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/spec.ts#L62)
+[spec.ts:63](https://github.com/lorefnon/zod-endpoint/blob/3866358/src/spec.ts#L63)
 
 ___
 
@@ -50,13 +50,13 @@ ___
 
 #### Defined in
 
-[spec.ts:50](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/spec.ts#L50)
+[spec.ts:50](https://github.com/lorefnon/zod-endpoint/blob/3866358/src/spec.ts#L50)
 
 ___
 
 ### placeholder
 
-▸ **placeholder**<`TName`, `TZType`\>(`name`, `phType`): [`PathStep`](spec.PathStep.md)<`TParams` & { [name in string]: TZType["\_output"] }\>
+▸ **placeholder**<`TName`, `TZType`\>(`name`, `phType`, `options?`): [`PathStep`](spec.PathStep.md)<`TParams` & { [name in string]: TZType["\_output"] }\>
 
 #### Type parameters
 
@@ -71,6 +71,7 @@ ___
 | :------ | :------ |
 | `name` | `TName` |
 | `phType` | `TZType` |
+| `options?` | `PlaceholderOptions` |
 
 #### Returns
 
@@ -78,4 +79,4 @@ ___
 
 #### Defined in
 
-[spec.ts:51](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/spec.ts#L51)
+[spec.ts:51](https://github.com/lorefnon/zod-endpoint/blob/3866358/src/spec.ts#L51)

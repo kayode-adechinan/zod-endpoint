@@ -37,20 +37,18 @@
 
 #### Defined in
 
-[server.ts:64](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/server.ts#L64)
+[server.ts:77](https://github.com/lorefnon/zod-endpoint/blob/3866358/src/server.ts#L77)
 
 ___
 
 ### bridge
 
-▸ **bridge**<`TIn`, `TOut`, `TSpec`\>(`endpoint`, `opts`): `Object`
+▸ **bridge**<`TSpec`\>(`endpoint`): `Object`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `TIn` | `TIn` |
-| `TOut` | `TOut` |
 | `TSpec` | extends [`AnyEndpointSpec`](spec.md#anyendpointspec) |
 
 #### Parameters
@@ -58,11 +56,6 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `endpoint` | `TSpec` |
-| `opts` | `Object` |
-| `opts.inputType` | (`inputType`: `ZodType`<[`Input`](spec.md#input)<`TSpec`\>, `ZodTypeDef`, [`Input`](spec.md#input)<`TSpec`\>\>) => `ZodType`<`TIn`, `ZodTypeDef`, `any`\> |
-| `opts.outputType` | (`outputType`: `TSpec`[``"result"``]) => `ZodType`<`TOut`, `ZodTypeDef`, `any`\> |
-| `opts.propagateError?` | (`err`: `any`, `res`: `Response`<`any`, `Record`<`string`, `any`\>\>) => `void` |
-| `opts.propagateResult?` | (`result`: `TOut`, `res`: `Response`<`any`, `Record`<`string`, `any`\>\>) => `void` |
 
 #### Returns
 
@@ -70,12 +63,11 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `implementationSchema` | `ZodFunction`<`ZodTuple`<[`ZodType`<`TIn`, `ZodTypeDef`, `any`\>], `ZodUnknown`\>, `ZodUnion`<[`ZodType`<`TOut`, `ZodTypeDef`, `any`\>, `ZodPromise`<`ZodType`<`TOut`, `ZodTypeDef`, `any`\>\>]\>\> |
-| `implement` | (`service`: (`input`: `TIn`) => `TOut` \| `Promise`<`TOut`\>) => { `attach`: (`router`: `Router`) => `void` ; `middleware`: (`req`: `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\>, `res`: `Response`<`any`, `Record`<`string`, `any`\>\>) => `Promise`<`void`\> ; `service`: (`input`: `TIn`) => `TOut` \| `Promise`<`TOut`\>  } |
+| `through` | <TIn, TOut\>(`trasformations`: { `inputType`: (`inputType`: `ZodType`<[`Input`](spec.md#input)<`TSpec`\>, `ZodTypeDef`, [`Input`](spec.md#input)<`TSpec`\>\>) => `ZodType`<`TIn`, `ZodTypeDef`, `any`\> ; `outputType`: (`outputType`: `TSpec`[``"result"``]) => `ZodType`<`TOut`, `ZodTypeDef`, `any`\> ; `propagateError?`: (`err`: `any`, `res`: `Response`<`any`, `Record`<`string`, `any`\>\>) => `void` ; `propagateResult?`: (`result`: `TOut`, `res`: `Response`<`any`, `Record`<`string`, `any`\>\>) => `void`  }) => { `serviceContract`: `ZodFunction`<`ZodTuple`<[`ZodType`<`TIn`, `ZodTypeDef`, `any`\>], `ZodUnknown`\>, `ZodUnion`<[`ZodType`<`TOut`, `ZodTypeDef`, `any`\>, `ZodPromise`<`ZodType`<`TOut`, `ZodTypeDef`, `any`\>\>]\>\> = implType; `toService`: (`service`: (`input`: `TIn`) => `TOut` \| `Promise`<`TOut`\>) => { `attach`: (`router`: `Router`) => `void` ; `middleware`: (`req`: `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\>, `res`: `Response`<`any`, `Record`<`string`, `any`\>\>) => `Promise`<`void`\> ; `service`: (`input`: `TIn`) => `TOut` \| `Promise`<`TOut`\>  }  } |
 
 #### Defined in
 
-[server.ts:18](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/server.ts#L18)
+[server.ts:18](https://github.com/lorefnon/zod-endpoint/blob/3866358/src/server.ts#L18)
 
 ___
 
@@ -101,7 +93,7 @@ ___
 
 #### Defined in
 
-[server.ts:6](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/server.ts#L6)
+[server.ts:6](https://github.com/lorefnon/zod-endpoint/blob/3866358/src/server.ts#L6)
 
 ___
 
@@ -127,4 +119,4 @@ ___
 
 #### Defined in
 
-[server.ts:14](https://github.com/lorefnon/zod-endpoint/blob/01ffc88/src/server.ts#L14)
+[server.ts:14](https://github.com/lorefnon/zod-endpoint/blob/3866358/src/server.ts#L14)

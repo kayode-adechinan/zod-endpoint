@@ -11,18 +11,13 @@ axios.interceptors.request.use((c) => {
 });
 
 test("client-server integration", async () => {
-
     // Define the endpoint specification
     const getPostsEndpoint = endpoint({
-
         // Specify the HTTP method
         method: "get",
 
         // Define the path /posts/:id through a type-safe fluent builder
-        path: path()
-            .literal("posts")
-            .placeholder("id", z.string())
-            .build(),
+        path: path().literal("posts").placeholder("id", z.string()).build(),
 
         // Define the shape of parsed Query parameters
         query: z.object({
@@ -42,31 +37,30 @@ test("client-server integration", async () => {
 
     // Bridge the endpoint spec to a service which is independent
     // of http
-    bridge(getPostsEndpoint, {
+    bridge(getPostsEndpoint)
+        .through({
+            // Return the zod type which will be used
+            // to parse the request object
+            //
+            // The received type argument is derived from specification endpoint
+            // and here we will transform the data to return something that the
+            // service expects
+            inputType: (it) =>
+                it.transform((it) => ({
+                    id: it.params.id,
+                    tag: it.query.tag,
+                })),
 
-        // Return the zod type which will be used
-        // to parse the request object
-        //
-        // The received type argument is derived from specification endpoint
-        // and here we will transform the data to return something that the
-        // service expects
-        inputType: (it) =>
-            it.transform((it) => ({
-                id: it.params.id,
-                tag: it.query.tag,
-            })),
-
-        // Zod-type to transform the service output
-        // to http output
-        outputType: (it) => it,
-    })
+            // Zod-type to transform the service output
+            // to http output
+            outputType: (it) => it,
+        })
 
         // Implementation of our service
         //
         // Note that this service implementation does not receive
         // request/response object and is http independent.
-        .implement(async ({ id, tag }) => {
-
+        .toService(async ({ id, tag }) => {
             // Dummy implementation.
             // In a real application we will most likely fetch this data
             // from some data store
